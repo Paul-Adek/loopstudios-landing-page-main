@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/275017751a.js" crossorigin="anonymous"></script>
+  <title>Frontend Mentor | Loopstudios landing page</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="desktop-nav" id="desktop">
+      <img src="images/logo.svg" alt="logo">
+      <ul>
+        <li value="0" class="link"><a href="#">About</a></li>
+        <li value="1" class="link"><a href="#">Careers</a></li>
+        <li value="2" class="link"><a href="#">Events</a></li>
+        <li value="3" class="link"><a href="#">Products</a></li>
+        <li value="4" class="link"><a href="#">Support</a></li>
+        <span id="active"></span>
+      </ul>
+    </nav>
+
+    <nav class="mobile-nav" id="nav-one">
+      <img src="images/logo.svg" alt="logo">
+      <img src="images/icon-hamburger.svg" alt="icon-hamburger" title="Menu" id="ham-icon">
+    </nav>
+    <div class="mobile-menu" id="menu">
+      <div>
+        <img src="images/logo.svg" alt="logo">
+        <img src="images/icon-close.svg" alt="icon-close" title="Close" id="close-icon">
+      </div>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <header>
+      <div class="title-box">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <h1>Immersive experiences that deliver</h1>
+      </div>
+    </header>
+
+    <section class="one">
+      <div class="img"></div>
+      <div class="text">
+        <h2>The leader in interactive VR</h2>
+        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality
+          projects for some of the best companies around the globe. Our award-winning
+          creations have transformed businesses through digital experiences that bind
+          to their brand.</p>
+      </div>
+    </section>
+
+    <section class="two">
+      <div class="title">
+        <h2>Our creations</h2>
+      </div>
+
+      <div class="card-con">
+        <div class="box-one">
+
+          <div class="card">
+            <span>Deep earth</span>
+          </div>
+
+          <div class="card">
+            <span>Night arcade</span>
+          </div>
+
+          <div class="card">
+            <span>Soccer team VR</span>
+          </div>
+
+          <div class="card">
+            <span>The grid</span>
+          </div>
+
+        </div>
+
+        <div class="box-two">
+
+          <div class="card">
+            <span>From up above VR</span>
+          </div>
+
+          <div class="card">
+            <span>Pocket borealis</span>
+          </div>
+
+          <div class="card">
+            <span>The curiosity</span>
+          </div>
+
+          <div class="card">
+            <span>Make it fisheye</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-menu">
+        <img src="images/logo.svg" alt="logo">
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="copy">
+        <div>
+          <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <span>© 2021 Loopstudios. All rights reserved.</span>
+      </div>
+
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">Paul Adekomi</a>.
+      </div>
+    </footer>
+    <button id="back-to-top" title="Back to top"><span>&utrif;</span></button>
+  </div>
+
+
+  <script>
+    const openMenu = document.getElementById("ham-icon");
+    const closeMenu = document.getElementById("close-icon");
+    const desktopMenu = document.getElementById("desktop");
+    const mobileMenu = document.getElementById("menu");
+    const navOne = document.getElementById("nav-one");
+    const backToTop = document.getElementById("back-to-top");
+    const links = document.querySelectorAll(".link");
+    const active = document.getElementById("active");
+
+    for (let i = 0; i < links.length; i++) {
+      links[i].addEventListener("click", () => {
+        active.style.left = (80 * links[i].value) + "px";
+      })
+
+    }
+
+    openMenu.onclick = () => {
+      mobileMenu.style.left = "0";
+      mobileMenu.style.transition = "1s left";
+    }
+
+    closeMenu.onclick = () => {
+      mobileMenu.style.left = "100%";
+      mobileMenu.style.transition = "1s left";
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        navOne.classList.add("change");
+        desktopMenu.classList.add("change2")
+        backToTop.style.right = '20px';
+      } else {
+        navOne.classList.remove("change");
+        desktopMenu.classList.remove("change2")
+        backToTop.style.right = '-40%';
+      }
+    }
+
+    window.onscroll = (() => { scrollFunction() });
+
+    backToTop.addEventListener("click", () => {
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+</body>
+
+</html>
